@@ -14,6 +14,15 @@ This repository contains some of this exploratory work.
 
 Our aim is to move objects "with our minds". Technically, we will gather EEG brainwaves using a Bitbrain 16-channel headset and we will create machine learning models to create classifiers capable of predicting the required actions to move motor-enabled objects such as electric wheelchairs or RC cars.
 
+## Data Collection
+
+![](/assets/eeg-10-20-location.png)
+
+Usamos un [headset](https://www.bitbrain.com/neurotechnology-products/semi-dry-eeg/versatile-eeg) de EEG semiseco portátil e inalámbrico. Los cuatro electrodos utilizados para recoger los datos de las imágenes motoras se colocaron a lo largo de la corteza sensoriomotora según el sistema 10/20 (canales C1, C2, C3 y C4), así como un electrodo de referencia colocado en un lóbulo de la oreja del sujeto.
+
+Canales Fp1, Fp2, Fp3, Fp4 para recoger artefactos de los pestañeos del sujeto. Y por otro lado, P7, 01, 02, P8.
+
+
 ## How to contribute
 
 To understand the project, read through the Jupyter notebooks in order. We're trying to keep them well documented and self-explainable.
