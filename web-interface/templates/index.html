@@ -47,19 +47,18 @@
         //   console.log();
         // });
         update_values = () => {
-          var joystickPosition = $(".joystick-base").position();
-          var joystickWidth = $(".joystick-base").width();
-          var joystickHeight = $(".joystick-base").height();
+          var joystickCenterX =
+            $(".joystick-base").offset().left + $(".joystick-base").width() / 2;
+          var joystickCenterY =
+            $(".joystick-base").offset().top + $(".joystick-base").height() / 2;
 
-          var joystickCenterX = joystickPosition.left + joystickWidth / 2;
-          var joystickCenterY = joystickPosition.top + joystickHeight / 2;
-
-          var maxRight = joystickCenterX + joystickWidth / 2;
-          var maxLeft = joystickCenterX - joystickWidth / 2;
+          var maxRight =
+            $(".joystick-base").offset().left + $(".joystick-base").width();
+          var maxLeft = $(".joystick-base").offset().left;
 
           var distance = maxRight - maxLeft;
           var half = distance / 2;
-          var zero = maxRight - half;
+          var zero = joystickCenterX;
 
           $.getJSON("/current_prediction", function(data) {
             if (data.direction == "right") {
