@@ -4,24 +4,46 @@
 
 [Saturdays.AI](https://saturdays.ai) is a global initiative to democratize access to Artificial Intelligence education at the quality and rigour of the world’s best universities, in the form of 14-week bootcamps.
 
-We've partnered with [Bitbrain](https://bitbrain.com), a leading world-class neurotechnology company, to explore projects at the intersection of Brain-Computer Interfaces (BCIs) and Artificial Intelligence (AI).
+We've partnered with [Bitbrain](https://bitbrain.com), a leading world-class neurotechnology company, to explore projects at the intersection of Brain-Computer Interfacing (BCI) and Artificial Intelligence (AI).
 
-This repository contains some of this exploratory work.
+![Part of the Saturdays.AI's BCI EEG team](/assets/saturdays-ai-bitbrain-bci-eeg-team.JPG)
 
-## The experiment
+## The course `/course`
+
+As part of this collaboration and within the context of Saturdays.AI, our main goal is to create an introductory Brain-Computer Interfacing bootcamp to be done over the course of 14 weeks.
+
+We ourselves will be the first students and beta users of this course, which, if successful, will be exported to the rest of the cities in the [Saturdays.AI](https://saturdays.ai) network as a new specialization path together with the usual Machine Learning, Deep Learning and Reinforcement Learning specialization paths.
+
+The course will propose a number of readings and resources to read through the week and will introduce a related code-based challenge to solve during the hands-on team meeting on Saturdays.
+
 
 ![Javi Rameerez wearing a Bitbrain's 16-ch EEG BCI headset](/assets/javi-rameerez-eeg-bci-headset.jpg)
 
-Our aim is to move objects "with our minds". Technically, we will gather EEG brainwaves using a Bitbrain 16-channel headset and we will create machine learning models to create classifiers capable of predicting the required actions to move motor-enabled objects such as electric wheelchairs or RC cars.
+## The end goal
+
+One of our goals is to finish the bootcamp with enough knowledge to move objects "with our minds". Technically, we will gather EEG brainwaves using a Bitbrain 16-channel headset (as seen in the picture) and we will create machine learning models to create classifiers capable of predicting the required actions to move motor-enabled objects such as electric wheelchairs or RC cars.
+
+![Javi Rameerez BCI EEG brainwaves](/assets/javi-rameerez-bci-eeg-brainwaves.JPG)
 
 ## Data Collection
 
 ![](/assets/eeg-10-20-location.png)
 
-Usamos un [headset](https://www.bitbrain.com/neurotechnology-products/semi-dry-eeg/versatile-eeg) de EEG semiseco portátil e inalámbrico. Los cuatro electrodos utilizados para recoger los datos de las imágenes motoras se colocaron a lo largo de la corteza sensoriomotora según el sistema 10/20 (canales C1, C2, C3 y C4), así como un electrodo de referencia colocado en un lóbulo de la oreja del sujeto.
+We're using a [Bitbrain EEG headset](https://www.bitbrain.com/neurotechnology-products/semi-dry-eeg/versatile-eeg) (semi-dry electrodes).
 
-Canales Fp1, Fp2, Fp3, Fp4 para recoger artefactos de los pestañeos del sujeto. Y por otro lado, P7, 01, 02, P8.
+All electrodes were placed following the 10-20 system.
 
+Four electrodes related to motor imagery were placed along the primary motor cortex area (`C1`, `C2`, `C3` and `C4`)
+
+`Fp1`, `Fp2`, `Fp3` and `Fp4` were used to record blinking artifacts.
+
+
+`P7`, `01`, `02` and `P8` were also used.
+
+
+## How to get started
+
+// TODO Bitbrain's Python wrapper `py-bbt-sdk-1.4.5-win64` probably needs to be located within `/vendor`, but can't probably be distributed and uploaded to the repo due to copyright issues.
 
 ## How to contribute
 
