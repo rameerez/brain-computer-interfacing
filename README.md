@@ -2,6 +2,11 @@
 
 # AI6's Brain-Computer Interfacing Research & Study Group
 
+![Saturdays.AI](https://img.shields.io/badge/status-active-brightgreen)
+![GitHub contributors](https://img.shields.io/github/contributors/rameerez/brain-computer-interfacing)
+![GitHub](https://img.shields.io/github/license/rameerez/brain-computer-interfacing)
+
+
 [Saturdays.AI](https://saturdays.ai) is a global initiative to democratize access to Artificial Intelligence education at the quality and rigour of the world’s best universities, in the form of 14-week bootcamps.
 
 We've partnered with [Bitbrain](https://bitbrain.com), a leading world-class neurotechnology company, to explore projects at the intersection of Brain-Computer Interfacing (BCI) and Artificial Intelligence (AI).
@@ -23,6 +28,8 @@ The course will propose a number of readings and resources to read through the w
 
 One of our goals is to finish the bootcamp with enough knowledge to move objects "with our minds". Technically, we will gather EEG brainwaves using a Bitbrain 16-channel headset (as seen in the picture) and we will create machine learning models to create classifiers capable of predicting the required actions to move motor-enabled objects such as electric wheelchairs or RC cars.
 
+Our initial experiments exploring approaches to achieve this can be found in `/first-experiments`.
+
 ![Javi Rameerez BCI EEG brainwaves](/assets/javi-rameerez-bci-eeg-brainwaves.JPG)
 
 ## Data Collection
@@ -43,7 +50,7 @@ Four electrodes related to motor imagery were placed along the primary motor cor
 
 ## How to get started
 
-// TODO Bitbrain's Python wrapper `py-bbt-sdk-1.4.5-win64` probably needs to be located within `/vendor`, but can't probably be distributed and uploaded to the repo due to copyright issues.
+// TODO Bitbrain's Python wrapper `py-bbt-sdk-1.4.5-win64` probably needs to be located within `/vendor`, but can't probably be distributed and uploaded to the repo due to copyright issues. Bitbrain's SDK only works in Windows environments.
 
 ## How to contribute
 
