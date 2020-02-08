@@ -13,7 +13,7 @@ We've partnered with [Bitbrain](https://bitbrain.com), a leading world-class neu
 
 ![Part of the Saturdays.AI's BCI EEG team](/assets/saturdays-ai-bitbrain-bci-eeg-team.JPG)
 
-## The course `/course`
+## The bootcamp course `/course`
 
 As part of this collaboration and within the context of Saturdays.AI, our main goal is to create an introductory Brain-Computer Interfacing bootcamp to be done over the course of 14 weeks.
 
