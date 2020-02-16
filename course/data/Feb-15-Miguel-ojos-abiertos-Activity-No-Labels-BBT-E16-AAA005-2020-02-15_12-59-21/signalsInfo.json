@@ -1,0 +1,39 @@
+{
+    "device": "BBT-E16-AAA005",
+    "eeg_sensor_type": "Water",
+    "record_date": "Sat Feb 15 13:37:09 2020",
+    "signals": [
+        {
+            "channels": 16,
+            "filename": "EEG.csv",
+            "mode": 1,
+            "samples_per_block": 8,
+            "sampling_rate": 256,
+            "type": "EEG"
+        },
+        {
+            "channels": 9,
+            "filename": "IMU.csv",
+            "mode": 1,
+            "samples_per_block": 1,
+            "sampling_rate": 32,
+            "type": "IMU"
+        },
+        {
+            "channels": 1,
+            "filename": "Photodiode.csv",
+            "mode": 1,
+            "samples_per_block": 8,
+            "sampling_rate": 256,
+            "type": "FOT"
+        },
+        {
+            "channels": 1,
+            "filename": "D in.csv",
+            "mode": 1,
+            "samples_per_block": 8,
+            "sampling_rate": 256,
+            "type": "DIN"
+        }
+    ]
+}
