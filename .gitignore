@@ -1,2 +1,3 @@
 .ipynb_checkpoints
 /vendor/*
+**/__pycache__
