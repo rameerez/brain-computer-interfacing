@@ -1,0 +1,5 @@
+signal,samplingrate,channels,samples,timestamps
+EEG,256,16,8,true
+IMU,32,9,1,true
+Photodiode,256,1,8,true
+D in,256,1,8,true

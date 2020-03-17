@@ -18,6 +18,7 @@ del hard_dependencies, dependency, missing_dependencies
 
 
 from bbtools.io import *
+from bbtools.mne import *
 
 
 # module level doc-string

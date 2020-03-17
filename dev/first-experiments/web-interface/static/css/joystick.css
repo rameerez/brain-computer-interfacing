@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  overflow-x: hidden;
+  /* background: #111; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+.joystick-container {
+}
+
+.joystick-base {
+  height: 116px;
+  width: 116px;
+  border-radius: 100%;
+  border: 10px solid rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5) inset, 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: border-color 0.3s;
+  cursor: pointer;
+  touch-action: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+.joystick-base:hover,
+.joystick-base.active {
+  border-color: rgba(0, 0, 0, 0.2);
+}
+.joystick-base:hover .joystick-shaft,
+.joystick-base.active .joystick-shaft {
+  background: rgba(0, 0, 0, 0.35);
+}
+.joystick-base.active {
+  background: rgba(0, 0, 0, 0.1);
+}
+.joystick-shaft {
+  position: absolute;
+  top: calc(50% - 32px);
+  left: calc(50% - 32px);
+  height: 64px;
+  width: 64px;
+  border-radius: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.7) inset;
+  transition: background 0.3s;
+  will-change: transform;
+  touch-action: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}

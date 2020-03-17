@@ -1,0 +1,78 @@
+<html>
+  <head>
+    <title>Saturdays.AI BCI study group</title>
+
+    <!-- <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    /> -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/joystick.css') }}"
+    />
+
+    <!-- <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script> -->
+  </head>
+  <body>
+    <div class="joystick-container">
+      <div class="joystick-base" touch-action="none">
+        <div class="joystick-shaft" touch-action="none"></div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js"></script>
+    <script src="{{ url_for('static', filename='js/joystick.js') }}"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(function() {
+        // $(".joystick-shaft").on("pointermove", function(e) {
+        //   console.log(e.clientX);
+        //   console.log(e.clientY);
+        //   console.log();
+        // });
+        update_values = () => {
+          var joystickCenterX =
+            $(".joystick-base").offset().left + $(".joystick-base").width() / 2;
+          var joystickCenterY =
+            $(".joystick-base").offset().top + $(".joystick-base").height() / 2;
+
+          var maxRight =
+            $(".joystick-base").offset().left + $(".joystick-base").width();
+          var maxLeft = $(".joystick-base").offset().left;
+
+          var distance = maxRight - maxLeft;
+          var half = distance / 2;
+          var zero = joystickCenterX;
+
+          $.getJSON("/current_prediction", function(data) {
+            if (data.direction == "right") {
+              point = ((data.prob - 0) / (1 - 0)) * (maxRight - half) + half;
+            } else if (data.direction == "left") {
+              point = ((data.prob - 0) / (1 - 0)) * (maxLeft - half) + maxLeft;
+            } else {
+              point = zero;
+            }
+            joystick.drag({ clientX: point, clientY: joystickCenterY });
+          });
+        };
+        setInterval(update_values, 1000);
+      });
+    </script>
+  </body>
+</html>
