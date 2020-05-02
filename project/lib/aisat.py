@@ -4,9 +4,59 @@ import mne
 from scipy.signal import welch
 import glob
 
+# Importar los datos 
+def cat_to_numeric(y):
+    #Convert to pandas
+    df = pd.DataFrame({'classes':y}, dtype='category')
+    df['classes_numeric'] = df['classes'].cat.codes
+    return df
 
-# Importar los datos a .fif
+def get_raw(dataset, paradigm, n_channels, sfreq, path):
+    '''
+    Takes a dataset from moabb datasets and creates 3 dictionaries with subject number as keys and X matrix, y labels and metadata
+    as dictionary values respectively.
+    X: Original 3D data matrix (num_cases, n_channels, lectures) is reshaped to 2D matrix (len(num_cases)*len(lectures),len(n_channels))
+    y: This array corresponds with the class for each case. It has num_cases length.
+    metadata: Describes each subject
+    '''
+    
+    subjects_all = dataset.subject_list
+    channels = [str(a) for a in range(n_channels)]
+    
 
+    X_all_subjects = {}
+    y_all_subjects = {}
+    metadata_all_subjects = {}
+    
+    for subject in subjects_all:
+        
+        X, y, metadata = paradigm.get_data(dataset=dataset, subjects=[subject])
+        X = np.delete(X, -1,axis = 2)
+        X_2d = X.reshape(n_channels,(X.shape[0]*X.shape[2]))
+        data_mne = X_2d
+        data_mne = data_mne / 1000000      
+                        
+        info_mne = mne.create_info(
+            ch_names=channels,
+            ch_types='eeg',
+            sfreq=sfreq)
+        
+        raw = mne.io.RawArray(data_mne, info_mne)
+        #ten_twenty_montage = mne.channels.make_standard_montage('standard_1020')
+        #raw_1020 = raw.copy().set_montage(ten_twenty_montage)
+
+        X_all_subjects.update({str(subject):raw})
+        y_all_subjects.update({str(subject):y})
+        metadata_all_subjects.update({str(subject):metadata})
+    
+    for k,v  in X_all_subjects.items():
+        v.save(f'{path}_X_{k}.fif', overwrite=True)
+        
+    for k,v  in y_all_subjects.items():
+        y = cat_to_numeric(v)
+        y.to_csv(f'{path}_y_{k}.csv')
+        
+    return X_all_subjects, y_all_subjects, metadata_all_subjects       
 
 
 # Preprocesado
